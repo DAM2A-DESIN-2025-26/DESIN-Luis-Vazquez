@@ -1,20 +1,38 @@
 function valorABilletes(valor) {
 
-    let billetes = [500, 200, 100, 50, 20, 10, 5];
-    imprimir = "";
-    valorRestante = valor;
+    var billetes = [500, 200, 100, 50, 20, 10, 5];
 
-  
-        for (let i = 0; i < billetes.length; i++) {
-            if (valor % billetes[i] > 0) {
-                imprimir += "1 x " + billetes[i] + " ";
+    var billetesDevolver = [];
+    var valorRestado = valor;
 
-                valor -= billetes[i];
-            }
+    for (let i = 0; i < billetes.length; i++) {
+        let contador = 0;
+        while (valorRestado >= billetes[i]) {
+            valorRestado -= billetes[i];
+            contador++;
         }
-    
+        billetesDevolver.push(contador);
+        if (contador > 0) {
+            console.log(contador + " x " + billetes[i])
 
-    console.log(imprimir)
+        }
+    }
+
+    return billetesDevolver;
 }
 
-valorABilletes(705)
+
+var cantidadUsuario = "";
+//sería mas correcto con un while(true) y un break cuando escriba fin
+while (cantidadUsuario != "FIN") {
+    cantidadUsuario = prompt("Introduce una cantidad, para finalizar introduce la palabra FIN")
+
+    if (cantidadUsuario > 0) {
+        valorABilletes(cantidadUsuario)
+        
+    } else if (cantidadUsuario != "FIN") {
+        alert("Introduce una cantidad válidad o la palabra 'FIN'")
+    }
+}
+
+
