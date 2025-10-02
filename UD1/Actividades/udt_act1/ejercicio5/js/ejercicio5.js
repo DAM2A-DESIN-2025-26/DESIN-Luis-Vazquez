@@ -1,10 +1,10 @@
 const jugadas = {
-    jugador1: "Papel",
-    jugador2: "Tijeras"
+    jugador1: "Tijera",
+    jugador2: "Papel"
 }
 
 const jugadasGanador = {
-    Piedra: "Tijeras",
+    Piedra: "Tijera",
     Tijera: "Papel",
     Papel: "Piedra"
 }
