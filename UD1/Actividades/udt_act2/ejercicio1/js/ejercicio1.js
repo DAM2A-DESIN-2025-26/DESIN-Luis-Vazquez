@@ -59,6 +59,7 @@ var nombreUserDos = (nombreApellidos) => {
         nombreUser += arr[i].substr(0, 2)
 
     }
+    
     console.log(nombreUser)
     return nombreUser;
 

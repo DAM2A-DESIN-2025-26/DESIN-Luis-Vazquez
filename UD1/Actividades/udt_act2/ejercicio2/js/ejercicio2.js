@@ -13,7 +13,7 @@ function infoCumple(diaCumple, mesCumple) {
     console.log(fechaHoy)
     console.log(fechaCumple)
     console.log(diferenciaDias)
-
+    
     return {}
 }
 
