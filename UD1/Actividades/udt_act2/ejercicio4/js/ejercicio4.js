@@ -1,6 +1,6 @@
 var arr1=[true,1,"Casa",function(){}]
 
-function tiposArray(arr) {
+function tiposEnArray(arr) {
     
     let arrayDevolver = []
     
@@ -12,4 +12,4 @@ function tiposArray(arr) {
     console.log(arrayDevolver)
 }
 
-tiposArray(arr1)
+tiposEnArray(arr1)
