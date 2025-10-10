@@ -20,7 +20,6 @@ function recorrerArrayForOf(arrayPaises) {
 
 function recorrerArrayForEachInverso(arrayPaises) {
 
-    let contador = 0;
     let arrayRecorrer = [];
 
     //invertimos el array

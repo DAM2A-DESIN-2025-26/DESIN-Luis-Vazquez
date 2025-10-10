@@ -5,7 +5,7 @@ var partidos = ["PV", "OV", "VpSI", "UPV"]
 var tabla = []
 tabla[0] = []
 tabla[0][0] = "Sede"
-
+//creamos la primera fila de la tabla con los nombres de los partidos
 for (let i = 0; i < partidos.length; i++) {
     tabla[0][i+1] = partidos[i]
 }
