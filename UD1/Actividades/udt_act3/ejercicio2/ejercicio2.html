@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/CentralMedidas.js" defer></script>
+    <script src="js/central_medidas_prueba.js" defer></script>
+</head>
+
+<body>
+    <div id="contenedor">
+        <form id="formulario">
+            <label for="ciudad">Ciudad:</label><br>
+            <input type="text" id="ciudad"><br>
+            <label for="medidas">Medidas:</label><br>
+            <textarea id="medidas"></textarea><br>
+
+            <label for="medidas">Medidas:</label>
+            <input type="radio" name="eleccion" id="manual">
+            <label for="medidas">Aleatorio:</label>
+            <input type="radio" name="eleccion" id="aleatorio"><br>
+
+            <button type="submit" id="botonGuardar">Guardar</button>
+            <button type="submit" id="botonBorrar">Borrar</button>
+        </form>
+
+        <div id="tabla">
+
+        </div>
+
+        <div id="tempMedia">
+
+        </div>
+    </div>
+</body>
+
+</html>

@@ -6,6 +6,8 @@ class CentralMedidas {
         this.#medidas = medidas;
     }
 
+
+
     insertaMedidas(ciudad, valores) {
 
         //comprobacion para saber si los datos vienen en el formato correcto
@@ -50,8 +52,8 @@ class CentralMedidas {
         }
 
         for (let i = 0; i < 30; i++) {
-            let numero = (Math.random() * 40);
-
+            let numero = Math.floor(Math.random() * 41);
+            
             numerosAleatorios.push(numero);
         }
 
@@ -64,34 +66,35 @@ class CentralMedidas {
         let cantidad = 30;
         let encontrada = false;
         for (let i = 0; i < this.#medidas.length; i++) {
+
             if (ciudad === this.#medidas[i][0]) {
-                for (let j = 1; j < this.#medidas[i].length; j++) {
+                for (let j = 1; j <= 30; j++) {
                     acumulador += this.#medidas[i][j]
                     encontrada = true
                 }
                 break;
             }
-            if (!encontrada) {
-                alert("la ciudad " + ciudad + " no existe")
-                return false
-            }
         }
 
-        return (acumulador / cantidad)
+        if (!encontrada) {
+            alert("la ciudad " + ciudad + " no existe")
+            return false
+        }
+        return ((acumulador / cantidad).toFixed(2))
 
     }
 
     mediaMedidasTotal() {
         let acumulador = 0;
-        let cantidad = 30;
+        let cantidad = this.#medidas.length * 30;
 
         for (let i = 0; i < this.#medidas.length; i++) {
-            for (let j = 1; j < this.#medidas[i].length; j++) {
+            for (let j = 1; j <= 30; j++) {
                 acumulador += this.#medidas[i][j]
                 break;
             }
         }
-        return (acumulador / cantidad)
+        return ((acumulador / cantidad).toFixed(2))
     }
 
     eliminaCiudad(ciudad) {
@@ -112,4 +115,58 @@ class CentralMedidas {
         console.table(this.#medidas)
     }
 
+    toHTML() {
+        //añadimos una columna media al #medidas
+        for (let i = 0; i < this.#medidas.length; i++) {
+            let ciudad = this.#medidas[i][0]
+            let mediaMes = this.mediaMedidas(ciudad)
+
+            this.#medidas[i].push(mediaMes)
+        }
+
+        //creamos la tabla
+
+        let tabla = document.createElement("table")
+
+        //generamos el thead (cabecera)
+        let thead = document.createElement("thead")
+        let tr = document.createElement("tr")
+        let th = document.createElement("th")
+       
+            th.textContent = "Ciudad"
+            tr.appendChild(th)
+       
+        for (let i = 0; i < 30; i++) {
+            let thBucle = document.createElement("th")
+
+            thBucle.textContent = "Dia " + (i+1)
+            tr.appendChild(thBucle)
+        }
+
+        let thMedia = document.createElement("th")
+        thMedia.textContent = "Media"
+        tr.appendChild(thMedia)
+
+        thead.appendChild(tr)
+        tabla.appendChild(thead)
+
+        //generamos el tbody (groso de la tabla)
+        let tbody = document.createElement("tbody")
+
+        for (let i = 0; i < this.#medidas.length; i++) {
+            let tr = document.createElement("tr")
+            
+            for (let j = 0; j < this.#medidas[i].length; j++) {
+                let element = this.#medidas[i][j];
+                let td = document.createElement("td")
+                td.textContent = element
+                tr.appendChild(td)
+            }
+
+            tbody.appendChild(tr)
+        }
+        tabla.appendChild(tbody)
+
+        document.getElementById("contenedor").appendChild(tabla)
+    }
 }
