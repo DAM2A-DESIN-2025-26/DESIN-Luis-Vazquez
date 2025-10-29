@@ -1,4 +1,4 @@
-function crearPersona(nombre, apellidos, edad = 0, contactos) {
+function crearPersona(nombre, apellidos, edad = 0, ...contactos) {
 
     if (typeof edad === "object") {
         // Movemos el array a la variable contactos

@@ -1,30 +1,30 @@
 export class Persona {
-    nombre;
-    apellido;
+    #nombre;
+    #apellido;
 
     constructor(nombre, apellido) {
-        this.nombre = nombre
-        this.apellido = apellido
+        this.#nombre = nombre
+        this.#apellido = apellido
         if (nombre == null)
-            this.nombre = "Sin nombre"
+            this.#nombre = "Sin nombre"
         if (apellido == null)
-            this.apellido = "Sin apellido"
+            this.#apellido = "Sin apellido"
     }
 
 
     get Nombre() {
-        return this.nombre;
+        return this.#nombre;
     }
     set Nombre(value) {
-        this.nombre = value;
+        this.#nombre = value;
     }
 
     get Apellido() {
-        return this.apellido;
+        return this.#apellido;
     }
 
     set Apellido(valor) {
-        this.apellido = valor;
+        this.#apellido = valor;
     }
 
     comer(platos) {
@@ -42,7 +42,6 @@ export class Persona {
     }
 
 }
-
 /*
 Comento para que no me cree personas en el ejercicio9, deberia crear un main.js donde instancie estas personas pero...
 const p1 = new Persona("Luis", "Vazquez")
