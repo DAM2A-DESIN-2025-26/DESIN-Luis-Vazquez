@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
+    <link rel="stylesheet" href="css/estilos.css">
     <script src="js/CentralMedidas.js" defer></script>
     <script src="js/central_medidas_prueba.js" defer></script>
 </head>
-
 <body>
     <div id="contenedor">
+        <h1>Central de Medidas</h1>
+
         <form id="formulario">
             <label for="ciudad">Ciudad:</label><br>
             <input type="text" id="ciudad"><br>
+
             <label for="medidas">Medidas:</label><br>
-            <textarea id="medidas"></textarea><br>
+            <textarea id="medidas" rows="3" cols="50"></textarea><br>
 
-            <label for="medidas">Medidas:</label>
-            <input type="radio" name="eleccion" id="manual">
-            <label for="medidas">Aleatorio:</label>
-            <input type="radio" name="eleccion" id="aleatorio"><br>
+            <input type="radio" name="eleccion" id="manual" checked>
+            <label for="manual">Manual</label>
 
-            <button type="submit" id="botonGuardar">Guardar</button>
-            <button type="submit" id="botonBorrar">Borrar</button>
+            <input type="radio" name="eleccion" id="aleatorio">
+            <label for="aleatorio">Aleatorio</label><br><br>
+
+            <button type="button" id="botonGuardar">Guardar</button>
+            <button type="button" id="botonBorrar">Borrar</button>
         </form>
 
-        <div id="tabla">
-
-        </div>
-
-        <div id="tempMedia">
-
-        </div>
+        <div id="errores" style="color:red; margin-top:10px;"></div>
+        <div id="tabla" style="margin-top:20px;"></div>
+        <div id="tempMedia" style="margin-top:10px;"></div>
     </div>
 </body>
-
 </html>
