@@ -31,6 +31,7 @@ radioManual.addEventListener("change", () => {
         ventasInput.readOnly = false
     }
 })
+
 radioAleatorio.addEventListener("change", () => {
     tiendaInput.value = ""
     ventasInput.value = ""
