@@ -68,6 +68,8 @@ class CentralMedidas {
         tabla.appendChild(thead);
 
         const tbody = document.createElement("tbody");
+
+        
         this.#medidas.forEach(fila => {
             const tr = document.createElement("tr");
             fila.forEach(dato => {
