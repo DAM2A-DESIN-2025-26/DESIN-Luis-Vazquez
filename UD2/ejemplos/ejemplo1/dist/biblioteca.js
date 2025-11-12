@@ -48,15 +48,11 @@ const libro4 = {
         return `Libro de aventuras del autor ${libro4.autor} comprado`;
     }
 };
-/*let biblioteca = [libro1, libro2, libro3];
-
+let biblioteca = [libro1, libro2, libro3];
 const checkPages = ({ nPaginas }) => nPaginas > 150;
-
 const checkLibro = (libro, biblioteca) => biblioteca.includes(libro);
-
 console.log(checkPages(libro1));
 console.log(checkPages(libro4));
-
 console.log(checkLibro(libro2, biblioteca));
-console.log(checkLibro(libro4, biblioteca));*/ 
+console.log(checkLibro(libro4, biblioteca));
 //# sourceMappingURL=biblioteca.js.map

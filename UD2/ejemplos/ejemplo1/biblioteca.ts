@@ -52,14 +52,14 @@ const libro4:Libro = {
     }
 };
 
-/*let biblioteca = [libro1, libro2, libro3];
+let biblioteca = [libro1, libro2, libro3];
 
-const checkPages = ({ nPaginas }) => nPaginas > 150;
+const checkPages = ({ nPaginas }: {nPaginas:number}):Boolean => nPaginas > 150;
 
-const checkLibro = (libro, biblioteca) => biblioteca.includes(libro);
+const checkLibro = (libro:Libro, biblioteca:any) => biblioteca.includes(libro);
 
 console.log(checkPages(libro1));
 console.log(checkPages(libro4));
 
 console.log(checkLibro(libro2, biblioteca));
-console.log(checkLibro(libro4, biblioteca));*/
+console.log(checkLibro(libro4, biblioteca));
