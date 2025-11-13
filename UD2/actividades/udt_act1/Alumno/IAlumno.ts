@@ -1,4 +1,4 @@
-export interface Alumno{
+export interface IAlumno{
 id:number,
 nombre:String,
 edad:number,
