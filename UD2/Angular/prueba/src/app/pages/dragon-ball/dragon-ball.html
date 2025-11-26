@@ -1,0 +1,7 @@
+<h1>PERSONAJES DE DRAGON BALL</h1>
+<ul>
+  @for (personaje of personajes(); track personaje.id) {
+    @if (personaje.power > 500) {
+  <li>Nombre: {{ personaje.name }} - Poder: {{ personaje.power }}</li>
+  } }
+</ul>
