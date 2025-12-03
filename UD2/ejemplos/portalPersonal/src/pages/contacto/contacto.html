@@ -1,1 +1,24 @@
-<p>contacto works!</p>
+<form action="">
+  <label>Nombre: </label>
+  <input type="text" #txtNombre placeholder="Tu nombre">
+  <br><br>
+  <label>Email: </label>
+  <input type="text" #txtEmail name="" id="">
+  <br><br>
+  <label>Mensaje: </label>
+  <textarea name="" #txtMensaje id=""></textarea>
+  <br><br>
+  <button type="button" (click)="mostrarCampos(txtNombre.value, txtEmail.value, txtMensaje.value)">Enviar</button>
+</form>
+
+@if (txtNombre.value != '' && txtEmail.value != '' ) {
+<div class="resumen">
+  <h3>Has enviado:</h3>
+  <p><strong>Nombre:</strong> {{ nombre() }}</p><br>
+  <p><strong>Email:</strong> {{ email() }}</p><br>
+  @if (txtMensaje.value != '') {
+  <p><strong>Mensaje:</strong> {{ mensaje() }}</p><br>
+  }
+</div>
+
+}

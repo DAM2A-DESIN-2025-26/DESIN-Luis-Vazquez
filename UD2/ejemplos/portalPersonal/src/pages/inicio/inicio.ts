@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-inicio',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './inicio.scss',
 })
 export class Inicio {
+visitas = signal(0);
 
+contarVisitas(){
+  this.visitas.update(valor => valor +1)
+}
 }

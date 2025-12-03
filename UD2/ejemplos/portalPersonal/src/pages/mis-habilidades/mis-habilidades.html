@@ -1,1 +1,5 @@
-<p>mis-habilidades works!</p>
+<ul>
+  @for (habilidad of habilidades(); track habilidad.nombre) {
+    <li>{{habilidad.nombre}} - {{habilidad.nivel}} @if(habilidad.nivel >= 70){Experto}</li>
+  }
+</ul>
