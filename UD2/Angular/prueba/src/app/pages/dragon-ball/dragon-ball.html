@@ -1,7 +1,35 @@
 <h1>PERSONAJES DE DRAGON BALL</h1>
-<ul>
-  @for (personaje of personajes(); track personaje.id) {
-    @if (personaje.power > 500) {
-  <li>Nombre: {{ personaje.name }} - Poder: {{ personaje.power }}</li>
-  } }
-</ul>
+
+<div class="row">
+  <div class="col-12 col-md-6 mt-2">
+    <h3>{{ name() }}</h3>
+    <input
+      class="form-control mx-2 mt-2"
+      type="text"
+      placeholder="Nombre"
+      [value]="name()"
+      (input)="name.set(textName.value)"
+      #textName
+    />
+    <h3>{{ power() }}</h3>
+    <input
+      class="form-control mx-2 mt-2"
+      type="number"
+      placeholder="Poder"
+      [value]="power()"
+      (input)="power.set(textPower.valueAsNumber)"
+      #textPower
+    />
+  </div>
+
+  <div class="col-12 col-md-6 mt-2">
+    <ul>
+      @for (personaje of personajes(); track personaje.id) { @if (personaje.power > 1000) {
+      <li>{{ personaje.name }} ({{ personaje.power }})</li>
+      } }
+    </ul>
+  </div>
+</div>
+<button (click)="pintarValores()" class="btn btn-warning mt-2">Añadir</button>
+<button (click)="limpiarCampos()" class="btn btn-warning mt-2">Reset</button>
+
