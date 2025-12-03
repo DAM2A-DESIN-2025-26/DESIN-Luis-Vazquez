@@ -1,0 +1,26 @@
+ <div class="col-12 col-md-6 mt-2">
+    <h3>{{ name() }}</h3>
+    <input
+      class="form-control mx-2 mt-2"
+      type="text"
+      placeholder="Nombre"
+      [value]="name()"
+      (input)="name.set(textName.value)"
+      #textName
+    />
+    @if (power()>0){
+    <h3>{{ power() }}</h3>
+    }
+
+    <input
+      class="form-control mx-2 mt-2"
+      type="number"
+      placeholder="Poder"
+      [value]="power()"
+      (input)="power.set(textPower.valueAsNumber)"
+      #textPower
+    />
+
+  <button (click)="crearPersonaje()" class="btn btn-warning mt-2">Añadir</button>
+  </div>
+

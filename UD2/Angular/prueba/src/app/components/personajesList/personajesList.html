@@ -1,0 +1,7 @@
+<div class="col-12 col-md-6 mt-2">
+  <ul>
+    @for (personaje of personajes(); track personaje.id) { @if (personaje.power > 1000) {
+    <li>{{ personaje.name }} ({{ personaje.power }})</li>
+    } }
+  </ul>
+</div>

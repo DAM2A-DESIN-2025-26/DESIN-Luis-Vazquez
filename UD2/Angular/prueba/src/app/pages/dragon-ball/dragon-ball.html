@@ -11,7 +11,9 @@
       (input)="name.set(textName.value)"
       #textName
     />
+    @if (power()>0){
     <h3>{{ power() }}</h3>
+    }
     <input
       class="form-control mx-2 mt-2"
       type="number"
@@ -32,4 +34,3 @@
 </div>
 <button (click)="pintarValores()" class="btn btn-warning mt-2">Añadir</button>
 <button (click)="limpiarCampos()" class="btn btn-warning mt-2">Reset</button>
-
