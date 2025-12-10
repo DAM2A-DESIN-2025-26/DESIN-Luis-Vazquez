@@ -1,0 +1,44 @@
+<h3 class="mb-3">{{ listName() }}</h3>
+
+<ul class="list-group">
+  @for (personaje of personajes(); track personaje.id;) { @if (personaje.ki > 1)
+  {
+
+  <li class="list-group-item d-flex align-items-center">
+    <!-- Imagen -->
+    <img
+      [src]="personaje.image || '/default.png'"
+      alt="{{ personaje.name }}"
+      class="img-fluid d-block mx-auto"
+      style="max-height: 80px; object-fit: contain"
+    />
+
+    <!-- Nombre + índice -->
+    <div class="flex-grow-1">
+      <strong>{{ personaje.name }}</strong>
+    </div>
+
+    <!-- KI con colores -->
+    <span
+      class="fw-bold"
+      [class.text-danger]="personaje.ki > 9000"
+      [class.text-primary]="personaje.ki <= 9000"
+    >
+      ({{ personaje.ki }})
+    </span>
+
+    <!-- Botón detalle TODO-->
+    <a
+      class="btn btn-sm btn-outline-primary ms-3"
+      [routerLink]="['/dragonball-super', personaje.id]"
+    >Detalle</a>
+  </li>
+
+  } @else {
+
+  <li class="list-group-item">
+    <strong>Este no tiene chicha</strong>
+  </li>
+
+  } }
+</ul>
