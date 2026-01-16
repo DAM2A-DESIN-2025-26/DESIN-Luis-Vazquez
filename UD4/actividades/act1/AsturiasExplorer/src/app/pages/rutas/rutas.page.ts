@@ -9,6 +9,7 @@ import {
 } from '@ionic/angular/standalone';
 import { FooterComponent } from "src/app/components/footer/footer.component";
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { IonicModule } from "@ionic/angular";
 
 @Component({
   selector: 'app-rutas',
@@ -17,13 +18,11 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
   standalone: true,
   imports: [
     IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
     CommonModule,
     FormsModule,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    IonicModule
 ],
 })
 export class RutasPage implements OnInit {

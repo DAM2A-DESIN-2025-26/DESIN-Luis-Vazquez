@@ -26,5 +26,4 @@ export class InicioPage implements OnInit {
   tituloApp:string = "AsturiasExplorer"
   textoCorto:string = "Bienvenidos a AsturiasExplorer, disfruta del paraiso"
 
-
 }
