@@ -7,6 +7,8 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { FooterComponent } from "src/app/components/footer/footer.component";
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-rutas',
@@ -20,7 +22,9 @@ import {
     IonToolbar,
     CommonModule,
     FormsModule,
-  ],
+    FooterComponent,
+    HeaderComponent
+],
 })
 export class RutasPage implements OnInit {
   constructor() {}

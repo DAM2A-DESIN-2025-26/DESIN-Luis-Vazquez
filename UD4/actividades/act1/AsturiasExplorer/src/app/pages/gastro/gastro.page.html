@@ -1,17 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>gastro</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-
-    </ion-toolbar>
-  </ion-header>
-
-   <p>{{nombre}}</p>
-   <p>{{apellidos}}</p>
-
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <img
+      src="https://imgs.search.brave.com/pHHmkgRG7zAhp1lrdr0-XGgZgiE9dDfAobBIBxBB9d4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dHVyaXNtb2FzdHVy/aWFzLmVzL28vYWRh/cHRpdmUtbWVkaWEv/aW1hZ2UvOTUzNDkv/Mi8wZjkxMjc4ZC02/NzU1LWE3YzAtMzdm/OS0xMmQzNmFlMmE5/ZmY_dD0xNjc0MTc0/NTQyMDkz"
+      alt="Imagen Fabada"
+    />
+    <ion-card-header>
+      <ion-card-title>{{tituloPlato}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content> {{descripcion}} </ion-card-content>
+    <ion-button>
+      Ver recetas
+    </ion-button>
+    <ion-button>
+      Dónde probarla
+    </ion-button>
+  </ion-card>
 </ion-content>
+
+<app-footer></app-footer>

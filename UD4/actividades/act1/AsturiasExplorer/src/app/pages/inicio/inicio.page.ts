@@ -1,16 +1,11 @@
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
+  IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
+  IonGrid, IonRow, IonCol, IonButton, IonIcon, IonImg
 } from '@ionic/angular/standalone';
-import { NavbarComponent } from "src/app/components/navbar/navbar.component";
-import { HeaderComponent } from "src/app/components/header/header.component";
-import { MainComponent } from "src/app/components/main/main.component";
-import { FooterComponent } from "src/app/components/footer/footer.component";
+import { HeaderComponent } from 'src/app/components/header/header.component';
 
 @Component({
   selector: 'app-inicio',
@@ -18,16 +13,9 @@ import { FooterComponent } from "src/app/components/footer/footer.component";
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
   imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    NavbarComponent,
-    HeaderComponent,
-    MainComponent,
-    FooterComponent
+   RouterLink, HeaderComponent, FooterComponent,
+    IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
+    IonGrid, IonRow, IonCol, IonButton, IonIcon, IonImg
 ],
 })
 export class InicioPage implements OnInit {
@@ -35,6 +23,8 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {}
 
-  nombre: string = 'Luis';
-  apellidos: string = 'Vazquez Garcia';
+  tituloApp:string = "AsturiasExplorer"
+  textoCorto:string = "Bienvenidos a AsturiasExplorer, disfruta del paraiso"
+
+
 }
