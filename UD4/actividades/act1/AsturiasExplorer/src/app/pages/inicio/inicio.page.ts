@@ -6,6 +6,7 @@ import {
   IonGrid, IonRow, IonCol, IonButton, IonIcon, IonImg
 } from '@ionic/angular/standalone';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { IonicModule } from "@ionic/angular";
 
 @Component({
   selector: 'app-inicio',
@@ -13,9 +14,9 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
   styleUrls: ['./inicio.page.scss'],
   standalone: true,
   imports: [
-   RouterLink, HeaderComponent, FooterComponent,
+    RouterLink, HeaderComponent, FooterComponent,
     IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    IonGrid, IonRow, IonCol, IonButton, IonIcon, IonImg
+    IonGrid,IonCol,IonIcon,IonRow
 ],
 })
 export class InicioPage implements OnInit {
@@ -25,5 +26,8 @@ export class InicioPage implements OnInit {
 
   tituloApp:string = "AsturiasExplorer"
   textoCorto:string = "Bienvenidos a AsturiasExplorer, disfruta del paraiso"
-
+  tituloRuta:string = "Rutas"
+  botonRutas:string = "Ver rutas"
+  tituloGastro:string = "Gastronomía"
+  botonGastro:string = "Ver gastronomía"
 }

@@ -14,7 +14,7 @@ export class FooterComponent  implements OnInit {
 
   ngOnInit() {}
 
-  copyright:string = "copyright"
+  copyright:string = "© copyright"
   anyo:number = 2026
 
 }

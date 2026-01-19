@@ -10,5 +10,33 @@
     </ion-card-header>
     <ion-card-content> {{textoCorto}} </ion-card-content>
   </ion-card>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card class="ion-text-center">
+          <ion-card-content>
+            <ion-icon name="map" style="font-size: 3rem; color: var(--ion-color-secondary);"></ion-icon>
+            <h2>{{tituloRuta}}</h2>
+            <ion-button expand="block" fill="outline" routerLink="/rutas">
+              {{botonRutas}}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card class="ion-text-center">
+          <ion-card-content>
+            <ion-icon name="map" style="font-size: 3rem; color: var(--ion-color-secondary);"></ion-icon>
+            <h2>{{tituloGastro}}</h2>
+            <ion-button expand="block" fill="outline" routerLink="/gastro">
+              {{botonGastro}}
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
 <app-footer></app-footer>

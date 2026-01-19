@@ -14,7 +14,7 @@ export class HeaderComponent  implements OnInit {
 
   ngOnInit() {}
 
-  titulo:string = "esto es un titulo"
+  titulo:string = "AsturiasExplorer"
   subtitulo:string = "esto es un subtitulo"
 
 }

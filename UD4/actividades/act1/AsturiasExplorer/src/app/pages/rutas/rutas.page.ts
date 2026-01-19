@@ -17,7 +17,6 @@ import { IonicModule } from "@ionic/angular";
   styleUrls: ['./rutas.page.scss'],
   standalone: true,
   imports: [
-    IonContent,
     CommonModule,
     FormsModule,
     FooterComponent,
