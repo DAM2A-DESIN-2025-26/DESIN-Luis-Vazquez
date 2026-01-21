@@ -1,0 +1,7 @@
+{
+  "name": "Calamar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
