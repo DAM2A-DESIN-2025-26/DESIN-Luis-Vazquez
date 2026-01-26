@@ -1,15 +1,15 @@
 export interface Juego {
   id: number;
   titulo: string;
-  plataforma: Plataforma;
+  plataforma: 'PC' | 'PS5' | 'Xbox' | 'Switch';
   genero: string;
   precio: number;
   popular: boolean;
 }
 
-export enum Plataforma{
-  PC,
-  PS5,
-  Xbox,
-  Switch
-}
+// export enum Plataforma {
+//   PC,
+//   PS5,
+//   Xbox,
+//   Switch,
+// }

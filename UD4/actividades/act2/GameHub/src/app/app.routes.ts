@@ -31,6 +31,11 @@ export const routes: Routes = [
         component: PerfilPage,
         children: [
           {
+            path: '',
+            redirectTo: 'configuracion',
+            pathMatch: 'full',
+          },
+          {
             path: 'configuracion',
             loadComponent: () =>
               import('./dashboard/perfil/configuracion/configuracion.page').then(
@@ -50,7 +55,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'juego-detalle',
+    path: 'juego-detalle/:id',
     loadComponent: () =>
       import('./juego-detalle/juego-detalle.page').then(
         (m) => m.JuegoDetallePage,
