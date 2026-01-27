@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { Personajes } from '../../interfaces/personajes';
 
 @Component({
@@ -8,5 +8,11 @@ import { Personajes } from '../../interfaces/personajes';
   styleUrl: './valoracion-list.scss',
 })
 export class ValoracionList {
- personajes = input.required<Personajes[]>();
+  personajes = input.required<Personajes[]>();
+
+  top3 = computed(() => {
+    return [...this.personajes()]
+      .sort((a, b) => b.valoracion - a.valoracion)
+      .slice(0, 3);
+  });
 }

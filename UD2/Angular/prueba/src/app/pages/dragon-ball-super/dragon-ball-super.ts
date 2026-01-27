@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { PersonajesList } from "../../components/personajesList/personajesList";
 import { Personajes } from '../../interfaces/personajes';
 import { PersonajesAdd } from "../../components/personajes-add/personajes-add";
@@ -25,4 +25,6 @@ export class DragonBallSuper {
     { id: 2, name: 'Krillin', power: 100, valoracion: 3},
     { id: 3, name: 'Piccolo', power: 2000, valoracion: 4},
   ]);
+
+
 }

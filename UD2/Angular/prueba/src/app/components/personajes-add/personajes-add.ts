@@ -11,7 +11,7 @@ export class PersonajesAdd {
 
   name = signal('');
   power = signal(0);
-  valoracion = signal(0);
+  valoracion = signal(1);
 
   newPersonaje = output<Personajes>();
 

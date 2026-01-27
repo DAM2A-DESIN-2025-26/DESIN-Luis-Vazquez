@@ -10,6 +10,5 @@ import { Personajes } from '../../interfaces/personajes';
 })
 export class PersonajesList {
   personajes = input.required<Personajes[]>();
-  nombrePagina = input<String>(); //investigar como poner este nombre en el h1 con el nombre de la pagina
 
 }
