@@ -1,8 +1,9 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { PersonajesList } from "../../components/personajesList/personajesList";
 import { Personajes } from '../../interfaces/personajes';
 import { PersonajesAdd } from "../../components/personajes-add/personajes-add";
 import { ValoracionList } from "../../components/valoracion-list/valoracion-list";
+import { DragonballService } from '../../services/dragonball-service';
 
 
 @Component({
@@ -12,19 +13,9 @@ import { ValoracionList } from "../../components/valoracion-list/valoracion-list
   styleUrl: './dragon-ball-super.scss',
 })
 export class DragonBallSuper {
-  name = signal('');
-  power = signal(0);
+  dragonBallService = inject(DragonballService);
 
-  addPersonaje(personaje:Personajes){
-    this.personajes.update((personajes) => [...personajes, personaje]);
-
+  constructor(){
+    this.dragonBallService.cargarPersonajes();
   }
-
-  personajes = signal<Personajes[]>([
-    { id: 1, name: 'Goku', power: 3000 ,valoracion: 5},
-    { id: 2, name: 'Krillin', power: 100, valoracion: 3},
-    { id: 3, name: 'Piccolo', power: 2000, valoracion: 4},
-  ]);
-
-
 }

@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>juegos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for (juego of juegosVisibles; track juego.id) {
+    <ion-item>
+      <ion-label>{{juego.titulo}}</ion-label>
+      <ion-label>{{juego.genero}}</ion-label>
+      <ion-label>{{juego.plataforma}}</ion-label>
+      <ion-label>{{juego.precio}}</ion-label>
+      <ion-button [routerLink] = "['/juego-detalle',juego.id]">
+        Detalles
+      </ion-button>
+      <ion-button [routerLink] = "['/']">
+        Vista Rapida TERMINAR
+      </ion-button>
+    </ion-item>
+    }
+  </ion-list>
+</ion-content>

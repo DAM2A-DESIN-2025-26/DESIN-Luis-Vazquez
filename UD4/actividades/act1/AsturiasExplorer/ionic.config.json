@@ -1,0 +1,7 @@
+{
+  "name": "AsturiasExplorer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

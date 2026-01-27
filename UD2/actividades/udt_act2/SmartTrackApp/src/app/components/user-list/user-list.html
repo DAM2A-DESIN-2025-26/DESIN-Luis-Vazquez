@@ -1,0 +1,43 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Listado de Usuarios</h2>
+
+    <a routerLink="/usuarios/nuevo" class="btn btn-success">
+      <i class="bi bi-plus-lg"></i> + Nuevo Usuario
+    </a>
+  </div>
+
+  @if (usuarios.length === 0) {
+    <div class="alert alert-info">Cargando usuarios o no hay datos...</div>
+  } @else {
+    <table class="table table-striped table-hover shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">DNI</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of usuarios; track user.dni) {
+          <tr>
+            <td>{{ user.dni }}</td>
+            <td>{{ user.nombre }}</td>
+            <td>{{ user.apellidos }}</td>
+            <td class="text-center">
+
+              <a [routerLink]="['/usuarios/editar', user._id]" class="btn btn-sm btn-warning me-2">
+                Editar
+              </a>
+
+              <button (click)="borrarUsuario(user._id)" class="btn btn-sm btn-danger">
+                Borrar
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
