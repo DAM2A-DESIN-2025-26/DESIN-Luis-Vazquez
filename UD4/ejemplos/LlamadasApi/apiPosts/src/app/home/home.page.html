@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for(post of listaPosts(); track post.id){
+    <ion-item>
+      <ion-label>
+        <h2>{{post.title}}</h2>
+        <p>{{post.body}}</p>
+      </ion-label>
+    </ion-item>
+    }
+  </ion-list>
+  <ion-button (click)="cargarDatos()" expand="block" fill="clear" shape="round">
+    Cargar Datos
+  </ion-button>
+</ion-content>

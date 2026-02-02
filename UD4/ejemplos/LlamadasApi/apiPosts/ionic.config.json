@@ -1,0 +1,7 @@
+{
+  "name": "apiPosts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

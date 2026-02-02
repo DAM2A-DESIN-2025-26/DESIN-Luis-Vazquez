@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { IonButton, IonContent, IonHeader, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonButton, IonContent, IonHeader, IonItem, IonLabel, IonList, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { Juego } from 'src/app/interfaces/Juego';
+import { GamePreviewComponent } from 'src/app/modals/game-preview/game-preview.component';
 
 @Component({
   selector: 'app-juegos',
@@ -28,7 +29,10 @@ export class JuegosPage implements OnInit {
   juegosVisibles: any[] = [];
   filtroActual: string = '';
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private modalCtrl: ModalController
+  ) {
     const navegacion = this.router.getCurrentNavigation();
     const state = navegacion?.extras.state as { plataforma: string };
 
@@ -43,6 +47,18 @@ export class JuegosPage implements OnInit {
   }
 
   ngOnInit() {}
+
+  async abrirModal(juegoSeleccionado: any) {
+    const modal = await this.modalCtrl.create({
+      component: GamePreviewComponent,
+      componentProps: {
+        // La clave 'juego' AQUÍ coincide con el @Input() juego ALLÁ
+        juego: juegoSeleccionado
+      }
+    });
+
+    await modal.present();
+  }
 
   listaJuegos: Juego[] = [
     {

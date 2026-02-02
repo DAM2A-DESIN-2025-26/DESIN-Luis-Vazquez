@@ -15,8 +15,8 @@
       <ion-button [routerLink] = "['/juego-detalle',juego.id]">
         Detalles
       </ion-button>
-      <ion-button [routerLink] = "['/']">
-        Vista Rapida TERMINAR
+      <ion-button (click)="abrirModal(juego)">
+        Vista Rapida
       </ion-button>
     </ion-item>
     }

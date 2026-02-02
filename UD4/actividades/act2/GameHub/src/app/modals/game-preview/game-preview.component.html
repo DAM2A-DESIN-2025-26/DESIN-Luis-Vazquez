@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Vista Rápida</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  @if (juego) {
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h1>{{ juego.titulo }}</h1>
+    </div>
+
+    <ion-list lines="full">
+      <ion-item>
+        <ion-label>
+          <h3>Plataforma</h3>
+          <p>{{ juego.plataforma }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h3>Género</h3>
+          <p>{{ juego.genero }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <h3>Precio</h3>
+          <p style="font-size: 1.2em; color: var(--ion-color-success);">
+            {{ juego.precio }}€
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <div style="margin-top: 20px;">
+      <ion-button expand="block" color="medium" (click)="cerrarModal()">
+        Cerrar Vista Rápida
+      </ion-button>
+    </div>
+  }
+
+</ion-content>
