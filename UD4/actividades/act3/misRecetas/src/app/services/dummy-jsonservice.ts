@@ -17,13 +17,14 @@ export class DummyJSONService {
     return this.httpClient.get<RecipeElement>(`${environment.apiURL}/${id}`);
   }
   insertarRecipe(item: RecipeElement): Observable<RecipeElement> {
-    return this.httpClient.post<RecipeElement>(environment.apiURL, item);
+    return this.httpClient.post<RecipeElement>(`${environment.apiURL}/add`, item);
   }
-  actualizarRecipe(item: RecipeElement): Observable<RecipeElement> {
-    return this.httpClient.put<RecipeElement>(environment.apiURL, item);
+  actualizarRecipe(id:number,item: RecipeElement): Observable<RecipeElement> {
+    return this.httpClient.put<RecipeElement>(`${environment.apiURL}/${id}`, item);
   }
   borrarPost(id: number): Observable<any> {
     return this.httpClient.delete(`${environment.apiURL}/${id}`);
   }
+
 
 }

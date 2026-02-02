@@ -31,6 +31,7 @@ export class RecetaDetallePage implements OnInit {
     if (idParam) {
       this.recipeId = +idParam
       this.cargarReceta(this.recipeId)
+
     }
 
   }
