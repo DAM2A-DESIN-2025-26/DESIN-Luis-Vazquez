@@ -1,13 +1,88 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recetaDetalle</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista-recetas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recetaDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  @if (receta(); as item) {
+
+  <div class="image-container">
+    <ion-img [src]="item.image" [alt]="item.name"></ion-img>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <ion-chip color="primary">{{ item.difficulty }}</ion-chip>
+        <ion-chip color="warning">
+          <ion-icon name="time-outline"></ion-icon>
+          <ion-label>{{ item.prepTimeMinutes + item.cookTimeMinutes }} min</ion-label>
+        </ion-chip>
+      </div>
+      <ion-card-title class="ion-margin-top">{{ item.name }}</ion-card-title>
+      <ion-card-subtitle>{{ item.cuisine }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <div class="tags-container ion-margin-bottom">
+        @for (tag of item.tags; track $index) {
+        <ion-chip outline color="medium">{{ tag }}</ion-chip>
+        }
+      </div>
+
+      <h3>Ingredientes</h3>
+      <ion-list lines="none">
+        @for (ing of item.ingredients; track $index) {
+        <ion-item>
+          <ion-icon name="restaurant-outline" slot="start" size="small" color="primary"></ion-icon>
+          <ion-label class="ion-text-wrap">{{ ing }}</ion-label>
+        </ion-item>
+        }
+      </ion-list>
+
+      <h3>Instrucciones</h3>
+      <ion-list lines="none">
+        @for (step of item.instructions; track $index) {
+        <ion-item>
+          <div slot="start" class="step-number">{{ $index + 1 }}</div>
+          <ion-label class="ion-text-wrap">{{ step }}</ion-label>
+        </ion-item>
+        }
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+  <div style="height: 80px;"></div>
+
+  } @else {
+  <div class="ion-padding ion-text-center">
+    <p>Cargando receta...</p>
+  </div>
+  }
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/receta-form', recipeId, 'edit']" expand="block" color="tertiary">
+        <ion-icon name="create" slot="start"></ion-icon>
+        Editar
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="confirmarEliminar()" color="danger">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Eliminar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

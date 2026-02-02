@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>listaRecetas</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/receta-form']">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-label>Añadir Receta</ion-label>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -14,12 +20,6 @@
   >
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">listaRecetas</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-list>
     @for (item of listaRecetas(); track item.id) {

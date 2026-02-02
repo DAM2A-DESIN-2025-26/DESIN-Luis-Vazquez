@@ -15,11 +15,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/lista-recetas/lista-recetas.page').then( m => m.ListaRecetasPage)
   },
    {
-    path: 'receta-detalle',
+    path: 'receta-detalle/:id',
     loadComponent: () => import('./pages/receta-detalle/receta-detalle.page').then( m => m.RecetaDetallePage)
   },
   {
     path: 'receta-form',
+    loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage)
+  },
+   {
+    path: 'receta-form/:id',
     loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage)
   },
 ];
