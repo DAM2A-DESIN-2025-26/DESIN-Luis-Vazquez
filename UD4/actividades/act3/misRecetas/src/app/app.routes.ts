@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth-guard.spec';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'lista-recetas',
     pathMatch: 'full',
+  },
+   {
+    path: 'login',
+    loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
   },
   {
     path: 'lista-recetas',
@@ -16,10 +21,14 @@ export const routes: Routes = [
   },
   {
     path: 'receta-form',
-    loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage)
+    loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage),
+    canActivate: [authGuard]
   },
    {
-    path: 'receta-form/:id/edit',
-    loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage)
+    path: 'receta-form/:id',
+    loadComponent: () => import('./pages/receta-form/receta-form.page').then( m => m.RecetaFormPage),
+    canActivate: [authGuard]
   },
+
+
 ];

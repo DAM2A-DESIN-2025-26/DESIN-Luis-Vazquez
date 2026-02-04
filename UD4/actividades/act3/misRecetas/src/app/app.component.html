@@ -1,3 +1,29 @@
 <ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item routerLink="/lista-recetas" lines="none">
+            <ion-label>Recetas</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="handleAuthAction()" lines="none">
+            <ion-label color="primary">
+              {{ authService.isLoggedIn() ? 'Cerrar Sesión (Logout)' : 'Iniciar Sesión (Login)' }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>

@@ -7,6 +7,12 @@
       </ion-button>
       <ion-label>Añadir Receta</ion-label>
     </ion-buttons>
+
+    <ion-button
+      (click)="gestionarSesion()"
+      [color]="authService.isLoggedIn() ? 'danger' : 'primary'">
+      {{ authService.isLoggedIn() ? 'Logout' : 'Login' }}
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
