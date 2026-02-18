@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Incidencias
+    </ion-title>
+    <ion-button (click)="onAnadirIncidencia()" expand="block" fill="clear" shape="round">
+      añadir incidencia
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-list>
+    @for (incidencia of incidenciasService.incidencias(); track incidencia.id) {
+      <app-item-incidencia
+      [incidencia]="incidencia"
+      (cambioEstadoAbierta)="onReabrir($event)"
+      (cambioEstadoResuelta)="onFinalizar($event)"
+      (borradoIncidencia)="onBorrarIncidencia($event)"
+      ></app-item-incidencia>
+    }
+ </ion-list>
+</ion-content>

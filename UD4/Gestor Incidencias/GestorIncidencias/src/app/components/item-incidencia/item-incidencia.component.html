@@ -1,0 +1,19 @@
+<ion-item>
+  <ion-label>{{incidencia?.title}}</ion-label>
+  <ion-label>{{incidencia?.body}}</ion-label>
+  <ion-label>{{incidencia?.estado}}</ion-label>
+  <ion-label>{{incidencia?.prioridad}}</ion-label>
+  @if (incidencia?.estado == "abierta") {
+    <ion-button (click)="cambiarEstadoResuelta($event)" expand="block" fill="clear" shape="round">
+      Finalizar
+    </ion-button>
+  }@else {
+<ion-button (click)="cambiarEstadoAbrir($event)" expand="block" fill="clear" shape="round">
+      Reabrir
+    </ion-button>
+  }
+
+  <ion-button (click)="borrar($event)" expand="block" fill="clear" shape="round">
+      Borrar
+    </ion-button>
+</ion-item>
