@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gestor de contactos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for (contacto of contactosService.contactos(); track contacto.id) {
+      <app-contacto-item
+      [contacto]="contacto"
+      (estadoCambiado)="cambiarEstado($event)"
+      (borradoSolicitado)="confirmarBorrado($event)"
+      (edicionSolicitada)="irAEditar($event)">
+      </app-contacto-item>
+    }
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button [routerLink]="['/nuevo']">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>

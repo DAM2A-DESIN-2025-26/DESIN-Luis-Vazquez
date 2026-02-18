@@ -1,0 +1,7 @@
+{
+  "name": "CarritoCompra",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

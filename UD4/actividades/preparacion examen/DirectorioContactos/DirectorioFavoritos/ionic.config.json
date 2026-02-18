@@ -1,0 +1,7 @@
+{
+  "name": "DirectorioFavoritos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

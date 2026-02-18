@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Gestor de tareas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for (tarea of tareasSerivce.tareas(); track tarea.id) {
+      <app-tarea-item [tarea]="tarea" (estadoCambiado)="cambiarEstado($event)">
+
+      </app-tarea-item>
+    }
+  </ion-list>
+</ion-content>

@@ -1,0 +1,8 @@
+<ion-item>
+  <ion-checkbox slot="start" [checked]="tarea.completed" (ionChange)="onCheckChange()"></ion-checkbox>
+
+  <ion-label>
+    <h2>{{tarea.title}}</h2>
+    <p>id: {{tarea.id}}</p>
+  </ion-label>
+</ion-item>

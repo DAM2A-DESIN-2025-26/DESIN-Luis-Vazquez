@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{modoEdicion ? 'editar contacto' : 'nuevo contacto'}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+  <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" formControlName="name"></ion-input>
+    </ion-item>
+    @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">El nombre es obligatorio</ion-note>
+    }
+
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" formControlName="email"></ion-input>
+    </ion-item>
+    @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">Formato de email incorrecto</ion-note>
+    }
+
+    <ion-item>
+      <ion-input label="Teléfono" labelPlacement="floating" formControlName="phone"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      {{ modoEdicion ? 'Actualizar' : 'Crear' }}
+    </ion-button>
+  </form>
+</ion-content>

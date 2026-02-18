@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{productoService.totalProductos()}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-list>
+    @for (p of productos; track p) {
+      <app-item-producto
+      [nombre]="p"
+      (productoAnadido)="anadirProducto()"
+      (productoEliminado)="eliminarProducto()"
+      ></app-item-producto>
+    }
+ </ion-list>
+
+ <ion-button (click)="reset()" expand="block" fill="clear" shape="round">
+  Reset
+ </ion-button>
+</ion-content>
