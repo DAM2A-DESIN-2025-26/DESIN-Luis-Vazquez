@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ esEdicion ? 'Editar Producto' : 'Añadir Producto' }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <ion-item>
+      <ion-input label="Título" labelPlacement="floating" formControlName="title"></ion-input>
+    </ion-item>
+    @if (form.get('title')?.hasError('required') && form.get('title')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">El título es obligatorio</ion-note>
+    }
+    @if (form.get('title')?.hasError('minlength') && form.get('title')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">Mínimo 3 caracteres</ion-note>
+    }
+
+    <ion-item>
+      <ion-input type="number" label="Precio (€)" labelPlacement="floating" formControlName="price"></ion-input>
+    </ion-item>
+    @if (form.get('price')?.hasError('required') && form.get('price')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">El precio es obligatorio</ion-note>
+    }
+
+    <ion-item>
+      <ion-select label="Categoría" formControlName="category">
+        <ion-select-option value="electronics">Electrónica</ion-select-option>
+        <ion-select-option value="jewelery">Joyería</ion-select-option>
+        <ion-select-option value="men's clothing">Ropa Hombre</ion-select-option>
+        <ion-select-option value="women's clothing">Ropa Mujer</ion-select-option>
+      </ion-select>
+    </ion-item>
+    @if (form.get('category')?.hasError('required') && form.get('category')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">La categoría es obligatoria</ion-note>
+    }
+
+    <ion-item>
+      <ion-textarea label="Descripción" labelPlacement="floating" rows="4" formControlName="description"></ion-textarea>
+    </ion-item>
+    @if (form.get('description')?.hasError('required') && form.get('description')?.touched) {
+      <ion-note color="danger" class="ion-padding-start">La descripción es obligatoria</ion-note>
+    }
+
+    <ion-item>
+      <ion-input type="url" label="URL de la Imagen" labelPlacement="floating" formControlName="image"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      {{ esEdicion ? 'Actualizar Producto' : 'Crear Producto' }}
+    </ion-button>
+
+  </form>
+
+</ion-content>

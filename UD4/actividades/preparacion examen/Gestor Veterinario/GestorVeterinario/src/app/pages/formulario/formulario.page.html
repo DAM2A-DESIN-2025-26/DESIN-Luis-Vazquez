@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="floating" formControlName="nombre"></ion-input>
+    </ion-item>
+    @if (form.get('nombre')?.hasError('required') && form.get('nombre')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">El nombre es obligatorio</ion-note>
+    }
+    @if (form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">Mínimo 3 caracteres</ion-note>
+    }
+
+    <ion-item>
+      <ion-input type="number" label="Edad" labelPlacement="floating" formControlName="edad"></ion-input>
+    </ion-item>
+    @if (form.get('edad')?.hasError('required') && form.get('edad')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">La edad es obligatorio</ion-note>
+    }
+
+    <ion-item>
+      <ion-select label="Especie" formControlName="especie">
+        <ion-select-option value="perro">Perro</ion-select-option>
+        <ion-select-option value="gato">Gato</ion-select-option>
+        <ion-select-option value="pajaro">Pajaro</ion-select-option>
+        <ion-select-option value="caballo">Caballo</ion-select-option>
+      </ion-select>
+    </ion-item>
+    @if (form.get('especie')?.hasError('required') && form.get('especie')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">La especie es obligatoria</ion-note>
+    }
+
+    <ion-item>
+      <ion-checkbox label="Urgencia" formControlName="urgencia">Es una urgencia?</ion-checkbox>
+    </ion-item>
+
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      {{ esEdicion ? 'Actualizar Mascota' : 'Crear Mascota' }}
+    </ion-button>
+
+  </form>
+
+</ion-content>

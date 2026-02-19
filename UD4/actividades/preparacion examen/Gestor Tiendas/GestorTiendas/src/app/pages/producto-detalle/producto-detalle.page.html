@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>producto-detalle</ion-title>
+    <ion-button (click)="onVolver()" expand="block" fill="clear" shape="round">
+      Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (productoEncontrado) {
+  <ion-card>
+
+    <div style="display: flex; justify-content: center; padding: 20px; background-color: white;">
+      <img [src]="productoEncontrado.image" style="max-height: 250px; object-fit: contain;" />
+    </div>
+
+    <ion-card-header>
+      <ion-chip color="secondary">
+        <ion-label>{{ productoEncontrado.category }}</ion-label>
+      </ion-chip>
+      <ion-card-title>{{ productoEncontrado.title }}</ion-card-title>
+      <ion-card-subtitle style="font-size: 1.5rem; color: var(--ion-color-success); font-weight: bold;">
+        {{ productoEncontrado.price }} €
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content style="font-size: 1.1rem; line-height: 1.5;">
+      {{ productoEncontrado.description }}
+    </ion-card-content>
+
+  </ion-card>
+  } @else {
+  <div class="ion-text-center ion-padding">
+    <p>Cargando producto...</p>
+  </div>
+  }
+</ion-content>

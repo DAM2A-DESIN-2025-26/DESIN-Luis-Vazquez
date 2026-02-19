@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Gestor Tienda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for (prod of productosService.productos(); track prod.id) {
+    <app-producto-item [producto]="prod" (productoBorrado)="onBorrar(prod.id)" (productoDetallado)="onDetalle(prod.id)"
+      (productoEditado)="onEditar(prod.id)">
+    </app-producto-item>
+    }
+  </ion-list>
+</ion-content>

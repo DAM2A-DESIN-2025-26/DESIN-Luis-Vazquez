@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>libro-formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <ion-item>
+      <ion-input label="Titulo" labelPlacement="floating" formControlName="titulo"></ion-input>
+    </ion-item>
+    @if (form.get('titulo')?.hasError('required') && form.get('titulo')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">El titulo es obligatorio</ion-note>
+    }
+    @if (form.get('titulo')?.hasError('minlength') && form.get('titulo')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">Mínimo 3 caracteres</ion-note>
+    }
+
+    <ion-item>
+      <ion-input label="Autor" labelPlacement="floating" formControlName="autor"></ion-input>
+    </ion-item>
+    @if (form.get('autor')?.hasError('required') && form.get('autor')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">El autor es obligatorio</ion-note>
+    }
+     @if (form.get('autor')?.hasError('minlength') && form.get('autor')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">Mínimo 3 caracteres</ion-note>
+    }
+
+    <ion-item>
+      <ion-select label="Genero" formControlName="genero">
+        <ion-select-option value="comedia">Comedia</ion-select-option>
+        <ion-select-option value="terror">Terror</ion-select-option>
+        <ion-select-option value="fantasia">Fantasia</ion-select-option>
+        <ion-select-option value="drama">Drama</ion-select-option>
+      </ion-select>
+    </ion-item>
+    @if (form.get('genero')?.hasError('required') && form.get('genero')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">La especie es obligatoria</ion-note>
+    }
+
+    <ion-item>
+      <ion-checkbox label="Leido" formControlName="leido">Lo has leído?</ion-checkbox>
+    </ion-item>
+
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      {{ esEdicion ? 'Actualizar Libro' : 'Crear Libro' }}
+    </ion-button>
+
+  </form>
+</ion-content>

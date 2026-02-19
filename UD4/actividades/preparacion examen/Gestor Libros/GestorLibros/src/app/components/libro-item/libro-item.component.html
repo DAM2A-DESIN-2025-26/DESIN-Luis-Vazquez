@@ -1,0 +1,15 @@
+<ion-item (click)="onDetalle($event)">
+  <ion-label>{{libro.titulo}}</ion-label>
+  <ion-label>{{libro.autor}}</ion-label>
+  <ion-label>{{libro.genero}}</ion-label>
+  @if (libro.leido) {
+<ion-icon name="checkmark-done-outline"></ion-icon>  }
+
+
+  <ion-button (click)="onEditar($event)" expand="block" fill="clear" shape="round">
+    Editar
+  </ion-button>
+   <ion-button (click)="onBorrar($event)" expand="block" fill="clear" shape="round">
+    borrar
+  </ion-button>
+</ion-item>

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Buscar libro..." (ionInput)="onSearchChange($event)" [debounce]="300">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="cargarLibros()" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!-- Sin el buscador,
+  <ion-list>
+    @for (mascota of mascotas(); track mascota._id) {
+      <app-mascota-item
+      [mascota]="mascota"
+      (mascotaBorrada)="onBorrarMascota(mascota._id)"
+      (mascotaDetallada)="onDetalleMascota(mascota._id)"
+      (mascotaEditada)="onEditarMascota(mascota._id)">
+
+      </app-mascota-item>
+    }
+  </ion-list>
+-->
+  @for (libro of librosFiltrados(); track libro._id) {
+  <app-libro-item [libro]="libro" (libroBorrado)="onBorrarLibro(libro._id)" (libroDetallado)="onDetalleLibro(libro._id)"
+    (libroEditado)="onEditarLibro(libro._id)"></app-libro-item>
+  } @empty {
+  <ion-item>
+    <ion-label>No se encontraron libros</ion-label>
+  </ion-item>
+  }
+
+  <ion-fab (click)="onCrearLibro()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

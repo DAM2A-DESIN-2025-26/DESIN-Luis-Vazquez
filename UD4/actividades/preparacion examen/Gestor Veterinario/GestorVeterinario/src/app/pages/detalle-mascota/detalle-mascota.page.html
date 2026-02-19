@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detalle-mascota</ion-title>
+  </ion-toolbar>
+  <ion-button (click)="onVolver()" expand="block" fill="clear" shape="round">
+    volver
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{mascota?.nombre}} </ion-card-title>
+      <h1>{{mascota?.especie}}</h1>
+
+      <h2>{{mascota?.edad}}</h2>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

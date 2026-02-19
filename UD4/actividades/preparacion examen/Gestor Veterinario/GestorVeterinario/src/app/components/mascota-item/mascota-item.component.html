@@ -1,0 +1,18 @@
+<ion-item (click)="onDetalle($event)">
+  <ion-label>{{mascota.nombre}}</ion-label>
+  <ion-label>{{mascota.especie}}</ion-label>
+  <ion-label>{{mascota.edad}}</ion-label>
+  @if (mascota.urgencia) {
+    <ion-label>Urgencia</ion-label>
+    <ion-icon slot="start" name="atCircle" color="red"></ion-icon>
+  }@else {
+    <ion-icon slot="start" name="atCircle"></ion-icon>
+  }
+
+  <ion-button (click)="onEditar($event)" expand="block" fill="clear" shape="round">
+    Editar
+  </ion-button>
+   <ion-button (click)="onBorrar($event)" expand="block" fill="clear" shape="round">
+    borrar
+  </ion-button>
+</ion-item>

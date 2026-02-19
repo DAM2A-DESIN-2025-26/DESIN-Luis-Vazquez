@@ -1,0 +1,16 @@
+<ion-item (click)="detallarProducto($event)">
+  <ion-label>{{producto.title}}</ion-label>
+  <ion-img [src]="producto.image"></ion-img>
+  <ion-label>{{producto.description}}</ion-label>
+  <ion-label>{{producto.price}}</ion-label>
+  <ion-chip color="primary" mode="ios" outline="true">
+    <ion-label>{{producto.category}}</ion-label>
+  </ion-chip>
+
+  <ion-button (click)="borrarProducto($event)" expand="block" fill="clear" shape="round">
+    Borrar
+  </ion-button>
+  <ion-button (click)="editarProducto($event)" expand="block" fill="clear" shape="round">
+    Editar
+  </ion-button>
+</ion-item>
