@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>listado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+ <ion-refresher slot="fixed" (ionRefresh)="ionViewWillEnter()" pullFactor="0.8" pullMin="60" pullMax="120">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list>
+    @for (cita of citas(); track cita.id) {
+      <app-item-cita
+      [cita]="cita"
+      (citaBorrada)="onBorrarCita(cita.id)"
+      (citaDetallada)="onDetalleCita(cita.id)"
+      (citaEditada)="onEditarCita(cita.id)">
+
+      </app-item-cita>
+    }
+  </ion-list>
+
+</ion-content>

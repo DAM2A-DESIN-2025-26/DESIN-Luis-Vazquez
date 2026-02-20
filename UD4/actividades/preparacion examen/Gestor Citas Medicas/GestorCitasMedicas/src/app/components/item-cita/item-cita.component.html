@@ -1,0 +1,12 @@
+<ion-item (click)="onDetalle($event)">
+  <ion-label>{{cita.paciente}}</ion-label>
+  <ion-label>{{cita.fecha}}</ion-label>
+  <ion-label>{{cita.especialidad}}</ion-label>
+
+  <ion-button (click)="onEditar($event)" expand="block" fill="clear" shape="round">
+    Editar
+  </ion-button>
+   <ion-button (click)="onBorrar($event)" expand="block" fill="clear" shape="round">
+    Borrar
+  </ion-button>
+</ion-item>

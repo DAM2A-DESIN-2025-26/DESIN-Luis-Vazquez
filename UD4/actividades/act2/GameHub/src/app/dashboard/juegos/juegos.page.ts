@@ -72,7 +72,7 @@ export class JuegosPage implements OnInit {
     {
       id: 2,
       titulo: 'Juego2',
-      plataforma: 'PC',
+      plataforma: 'PS5',
       genero: 'Aventuras',
       precio: 10,
       popular: true,

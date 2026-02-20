@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>formulario-cita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <ion-item>
+      <ion-item>
+        <ion-label></ion-label>
+        <ion-datetime display-format="DD.MM.YYYY HH:mm" label="Fecha" labelPlacement="floating"
+          formControlName="fecha"></ion-datetime>
+      </ion-item>
+    </ion-item>
+    @if (form.get('fecha')?.hasError('required') && form.get('fecha')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">La fecha es obligatoria</ion-note>
+    }
+
+
+    <ion-item>
+      <ion-input label="Paciente" labelPlacement="floating" formControlName="paciente"></ion-input>
+    </ion-item>
+    @if (form.get('paciente')?.hasError('required') && form.get('paciente')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">El paciente es obligatorio</ion-note>
+    }
+
+    <ion-item>
+      <ion-input label="Especialidad" labelPlacement="floating" formControlName="especialidad"></ion-input>
+    </ion-item>
+    @if (form.get('especialidad')?.hasError('required') && form.get('especialidad')?.touched) {
+    <ion-note color="danger" class="ion-padding-start">La especialidad es obligatorio</ion-note>
+    }
+
+
+
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" class="ion-margin-top">
+      {{ esEdicion ? 'Actualizar Cita' : 'Crear Cita' }}
+    </ion-button>
+
+  </form>
+</ion-content>
