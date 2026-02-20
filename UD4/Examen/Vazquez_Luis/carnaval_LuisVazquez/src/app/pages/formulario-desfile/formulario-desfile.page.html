@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>formulario-desfile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <ion-item>
+      <ion-input
+        label="Nombre"
+        labelPlacement="floating"
+        formControlName="nombre"
+      ></ion-input>
+    </ion-item>
+    @if (form.get('nombre')?.hasError('required') &&
+    form.get('nombre')?.touched) {
+    <ion-note color="danger" class="ion-padding-start"
+      >El nombre es obligatorio</ion-note
+    >
+    } @if (form.get('nombre')?.hasError('minlength') &&
+    form.get('nombre')?.touched) {
+    <ion-note color="danger" class="ion-padding-start"
+      >Mínimo 5 caracteres</ion-note
+    >
+    }
+
+    <ion-item>
+      <ion-input
+        label="Slug"
+        labelPlacement="floating"
+        formControlName="slug"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime display-format="DD.MM.YYYY HH:mm" formControlName="fecha"></ion-datetime>
+      </ion-item>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Ciudad"
+        labelPlacement="floating"
+        formControlName="ciudad"
+      ></ion-input>
+    </ion-item>
+    @if (form.get('ciudad')?.hasError('required') &&
+    form.get('ciudad')?.touched) {
+    <ion-note color="danger" class="ion-padding-start"
+      >La ciudad es obligatoria</ion-note
+    >}
+
+    <ion-item>
+      <ion-checkbox label="Destacado" formControlName="destacado"
+        >Destacado</ion-checkbox
+      >
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="form.invalid"
+      class="ion-margin-top"
+    >
+      CREAR DESFILE
+    </ion-button>
+  </form>
+</ion-content>

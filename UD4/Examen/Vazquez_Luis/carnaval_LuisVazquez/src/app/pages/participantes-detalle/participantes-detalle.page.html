@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>participantes-detalle</ion-title>
+    <ion-button (click)="onVolver()" expand="block" fill="clear" shape="round">
+      Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+   <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{participante?.nombre}} </ion-card-title>
+      <h1>Premios: {{participante?.premios}}</h1>
+
+      <h2>Puntuacion: {{participante?.puntuacion}}</h2>
+
+      @for (disfraz of participante?.disfraces; track disfraz.id) {
+        <ion-img [src]="disfraz.imagen"></ion-img>
+        <ion-label>{{disfraz.nombre}}</ion-label>
+      }
+    </ion-card-content>
+  </ion-card>
+</ion-content>

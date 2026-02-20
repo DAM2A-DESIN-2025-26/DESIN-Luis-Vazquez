@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>desfiles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="onCrearDesfile()" expand="block" fill="clear" shape="round">
+    NUEVO DESFILE
+  </ion-button>
+  <ion-list>
+    @for (desfile of desfiles(); track desfile.id) {
+    <app-item-desfile [desfile]="desfile"> </app-item-desfile>
+    }
+  </ion-list>
+</ion-content>

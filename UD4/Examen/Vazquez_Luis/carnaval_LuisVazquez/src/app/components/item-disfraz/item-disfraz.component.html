@@ -1,0 +1,10 @@
+<ion-item >
+  <ion-img [src]="disfraz.imagen"></ion-img>
+  <ion-label>{{disfraz.nombre}}</ion-label>
+
+  <ion-label>{{disfraz.nombre}}</ion-label>
+  @for (participante of disfraz.participantes; track participante.id) {
+    <ion-label (click)="onDetalleParticipante($event)">{{participante.nombre}}</ion-label>
+    <ion-label>{{participante.premios}}</ion-label>
+  }
+</ion-item>

@@ -1,0 +1,7 @@
+{
+  "name": "carnaval_LuisVazquez",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
