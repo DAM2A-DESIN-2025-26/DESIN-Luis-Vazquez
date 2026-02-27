@@ -1,0 +1,10 @@
+{
+  "IDIOMA": {
+    "TITULO": "Idioma",
+    "SELECCIONADO": "El idioma seleccionado es: Español"
+  },
+  "BOTONES": {
+    "ESPANOL": "ES",
+    "INGLES": "EN"
+  }
+}

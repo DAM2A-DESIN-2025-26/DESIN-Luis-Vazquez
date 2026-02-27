@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="obtenerPosicion()">
+    <ion-icon slot="start" name="location-outline"></ion-icon>
+    Obtener posición
+  </ion-button>
+
+  @if (latitud !== 0) {
+    <ion-card>
+      <ion-card-content>
+        <p><strong>Latitud:</strong> {{ latitud }}</p>
+        <p><strong>Longitud:</strong> {{ longitud }}</p>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (mapaCargado) {
+    <div id="mapaId" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+  }
+</ion-content>

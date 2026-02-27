@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'IDIOMA.TITULO' | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="cambiarIdioma('es')">{{ 'BOTONES.ESPANOL' | translate }}</ion-button>
+      <ion-button (click)="cambiarIdioma('en')">{{ 'BOTONES.INGLES' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding text-center">
+  <ion-card>
+    <ion-card-content>
+      <h2>{{ 'IDIOMA.SELECCIONADO' | translate }}</h2>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
